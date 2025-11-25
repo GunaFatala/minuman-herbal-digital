@@ -1,0 +1,327 @@
+/* Reset & Global Styles */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif; /* Font modern mirip Figma */
+    color: #333;
+    line-height: 1.6;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1100px; /* Lebar konten agar tidak terlalu melebar */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #000;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.btn-contact {
+    background-color: #000;
+    color: #fff !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+    padding: 60px 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #111;
+}
+
+.hero .subtitle {
+    color: #666;
+    max-width: 600px;
+    margin-bottom: 40px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    max-height: 500px; /* Batasi tinggi gambar */
+}
+
+/* Tentang Kami Section */
+.about {
+    padding: 80px 0;
+    background-color: #fafafa; /* Sedikit abu-abu untuk pemisah */
+}
+
+.tag {
+    color: #27ae60; /* Warna hijau mirip di desain */
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.about h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.about p {
+    color: #444;
+    max-width: 800px;
+    text-align: justify;
+}
+
+/* Produk Section */
+.products {
+    padding: 80px 0;
+}
+
+.products h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* Efek naik untuk kartu produk dan resep */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white; /* Pastikan ada background biar bayangan kelihatan */
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Naik ke atas 10px */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Muncul bayangan */
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* --- Styles Tambahan untuk Resep & Footer --- */
+
+/* Grid System yang bisa dipakai ulang */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Resep Section */
+.recipes {
+    padding: 60px 0;
+}
+
+.recipes h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+/* Styling khusus kartu resep */
+.recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.recipe-link {
+    font-weight: 700;
+    color: #0056b3; /* Warna biru link */
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.recipe-link:hover {
+    text-decoration: underline;
+}
+
+.date {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* Tombol Tampilkan Lainnya (Warna Abu) */
+.center-btn {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-gray {
+    background-color: #e0e0e0;
+    color: #333;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-gray:hover {
+    background-color: #ccc;
+}
+
+/* Footer Baru */
+footer {
+    background-color: #fff; /* Putih sesuai desain */
+    padding: 60px 0;
+    border-top: 1px solid #eee;
+}
+
+.footer-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Agar kiri dan kanan terpisah */
+    flex-wrap: wrap; /* Agar responsif di HP */
+    gap: 40px;
+}
+
+.footer-left {
+    flex: 1; /* Mengambil ruang sisa */
+    min-width: 300px;
+}
+
+.footer-left h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.footer-right {
+    flex: 1;
+    min-width: 300px;
+}
+
+.footer-right ul {
+    list-style: none;
+}
+
+.footer-right li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.footer-right .icon {
+    margin-right: 15px;
+    font-size: 1.2rem;
+    width: 25px; /* Lebar tetap agar teks rata */
+    text-align: center;
+}
+
+/* Responsif untuk Mobile (Layar kecil) */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Jadi atas bawah di HP */
+    }
+}
+
+/* Tambahan untuk Mobile */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem; /* Kecilkan font judul di HP */
+    }
+
+    .nav-links {
+        display: none; /* Idealnya diganti hamburger menu, tapi untuk simpel kita sembunyikan dulu atau buat stack */
+        /* Opsi cepat: Tampilkan menurun */
+        /* display: flex; 
+           flex-direction: column; 
+           gap: 10px; */
+    }
+    
+    /* Agar menu tetap terlihat tapi rapi (opsional simpel) */
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
