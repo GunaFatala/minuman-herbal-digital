@@ -325,3 +325,187 @@ footer {
         justify-content: center;
     }
 }
+
+/* --- BMI Calculator Styles --- */
+.bmi-section {
+    background-color: #f0f8ff; /* Warna biru muda lembut */
+    padding: 60px 0;
+    text-align: center;
+}
+
+.bmi-wrapper {
+    background: white;
+    max-width: 500px;
+    margin: 30px auto 0;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.bmi-form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.bmi-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.bmi-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.bmi-form button:hover {
+    background-color: #219150;
+}
+
+.bmi-result {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px dashed #eee;
+    animation: fadeIn 0.5s;
+}
+
+.bmi-result h3 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.recommendation-box {
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    color: #856404;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tombol WhatsApp */
+.btn-wa {
+    display: inline-block; /* Agar bisa dikasih margin */
+    background-color: #25D366; /* Warna Hijau WA */
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    width: 100%; /* Tombol lebar penuh */
+    text-align: center;
+}
+
+.btn-wa:hover {
+    background-color: #128C7E; /* Hijau lebih gelap pas disentuh */
+}
+
+/* --- FAQ Section Styles --- */
+.faq-section {
+    padding: 60px 0;
+    background-color: white;
+}
+
+.faq-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.faq-grid {
+    max-width: 800px;
+    margin: 0 auto; /* Tengah */
+}
+
+details {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+details[open] {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Bayangan saat dibuka */
+    border-color: #27ae60; /* Jadi hijau saat dibuka */
+}
+
+summary {
+    padding: 15px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    background-color: #f9f9f9;
+    list-style: none; /* Hilangkan panah default browser lama */
+    position: relative;
+}
+
+/* Tanda Panah Custom (+) */
+summary::after {
+    content: '+'; 
+    position: absolute;
+    right: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #666;
+}
+
+details[open] summary::after {
+    content: '-'; /* Berubah jadi minus saat dibuka */
+}
+
+.faq-answer {
+    padding: 20px;
+    background-color: white;
+    color: #555;
+    border-top: 1px solid #eee;
+    line-height: 1.6;
+}
+
+/* --- Styling Khusus Icon Footer --- */
+
+/* Agar ukuran icon pas */
+.footer-right i {
+    font-size: 1.3rem; /* Ukuran icon */
+    vertical-align: middle;
+}
+
+/* Warna Instagram */
+.fa-instagram {
+    color: #E1306C; /* Pink kemerahan khas Instagram */
+}
+
+/* Warna WhatsApp */
+.fa-whatsapp {
+    color: #25D366; /* Hijau WA */
+}
+
+/* Warna Email */
+.fa-envelope {
+    color: #007bff; /* Biru */
+}
+
+/* Efek Hover (Goyang dikit pas disentuh) */
+.footer-right li:hover i {
+    transform: scale(1.2); /* Membesar sedikit */
+    transition: transform 0.2s;
+}
