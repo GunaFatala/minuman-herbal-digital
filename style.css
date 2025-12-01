@@ -1,54 +1,65 @@
-/* Reset & Global Styles */
-html {
-    scroll-behavior: smooth;
-}
-
+/* --- GLOBAL STYLES --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 70px;
+}
+
 body {
-    font-family: 'Inter', sans-serif; /* Font modern mirip Figma */
+    font-family: 'Inter', sans-serif;
     color: #333;
     line-height: 1.6;
     background-color: #fff;
+    overflow-x: hidden;
 }
 
 .container {
-    max-width: 1100px; /* Lebar konten agar tidak terlalu melebar */
+    max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Navbar */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- NAVBAR --- */
 .navbar {
-    padding: 20px 0;
+    padding: 15px 0;
     position: sticky;
     top: 0;
     background: white;
-    z-index: 100;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative; 
+    min-height: 40px; /* Menjaga tinggi navbar stabil */
 }
 
 .logo {
     font-weight: 700;
     font-size: 1.2rem;
     text-decoration: none;
-    color: #000;
+    color: #27ae60;
+    position: relative;
+    z-index: 10; /* Layer di bawah sidebar */
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 25px;
     align-items: center;
 }
 
@@ -57,455 +68,294 @@ body {
     color: #555;
     font-size: 0.9rem;
     font-weight: 600;
+    transition: 0.3s;
 }
 
-.btn-contact {
-    background-color: #000;
-    color: #fff !important;
-    padding: 10px 20px;
-    border-radius: 5px;
+.nav-links a:hover {
+    color: #27ae60;
 }
 
-/* Hero Section */
-.hero {
-    padding: 60px 0;
+/* --- LOGIKA SIDEBAR MOBILE --- */
+.nav-toggle { display: none; }
+
+/* FIX POSISI BURGER (Ganti di sini) */
+.nav-toggle-label {
+    display: none; /* Default sembunyi di desktop */
+    cursor: pointer;
+    
+    position: absolute;
+    /* GANTI INI: Dari 0 jadi 20px biar gak mepet kanan */
+    right: 20px; 
+    
+    top: 50%;
+    transform: translateY(-50%); /* Pas di tengah vertikal */
+    z-index: 2000; /* Paling atas */
 }
 
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    color: #111;
-}
-
-.hero .subtitle {
-    color: #666;
-    max-width: 600px;
-    margin-bottom: 40px;
-}
-
-.hero-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    object-fit: cover;
-    max-height: 500px; /* Batasi tinggi gambar */
-}
-
-/* Tentang Kami Section */
-.about {
-    padding: 80px 0;
-    background-color: #fafafa; /* Sedikit abu-abu untuk pemisah */
-}
-
-.tag {
-    color: #27ae60; /* Warna hijau mirip di desain */
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.85rem;
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
     display: block;
-    margin-bottom: 10px;
+    background: #333;
+    height: 3px;
+    width: 25px;
+    border-radius: 2px;
+    position: relative;
+    transition: all 0.3s ease-in-out;
 }
 
-.about h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+    content: '';
+    position: absolute;
 }
 
-.about p {
-    color: #444;
-    max-width: 800px;
-    text-align: justify;
-}
+.nav-toggle-label span::before { bottom: 8px; }
+.nav-toggle-label span::after { top: 8px; }
 
-/* Produk Section */
-.products {
-    padding: 80px 0;
-}
+/* --- HERO SECTION --- */
+.hero { padding: 60px 0; }
+.hero h1 { font-size: 2.5rem; margin-bottom: 15px; color: #222; }
+.hero .subtitle { color: #666; margin-bottom: 20px; max-width: 600px; }
+.hero-image img { border-radius: 12px; margin-top: 20px; width: 100%; max-height: 400px; object-fit: cover; }
 
-.products h2 {
-    font-size: 2rem;
-    margin-bottom: 40px;
-}
+/* --- SECTIONS UMUM --- */
+section { padding: 60px 0; }
+.tag { color: #27ae60; font-weight: bold; text-transform: uppercase; font-size: 0.85rem; display: block; margin-bottom: 5px; }
+h2 { font-size: 2rem; margin-bottom: 30px; color: #222; }
 
-.product-grid {
+/* --- GRID SYSTEM --- */
+.product-grid, .grid-3 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
 }
 
-/* Efek naik untuk kartu produk dan resep */
+/* --- CARD SIMETRIS --- */
 .card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background: white; /* Pastikan ada background biar bayangan kelihatan */
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column; 
+    height: 100%; 
 }
 
-.card:hover {
-    transform: translateY(-10px); /* Naik ke atas 10px */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Muncul bayangan */
-}
+.card img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+.card-content { flex-grow: 1; }
+.card h3 { font-size: 1.2rem; margin-bottom: 5px; }
+.card p { color: #666; font-size: 0.95rem; line-height: 1.5; }
 
-.card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-
-.card p {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-/* Footer */
-footer {
-    padding: 40px 0;
+/* --- TOMBOL --- */
+.btn-wa {
+    display: block;
+    background-color: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 20px;
     text-align: center;
-    border-top: 1px solid #eee;
-    font-size: 0.9rem;
-    color: #888;
+    transition: 0.3s;
 }
-
-/* --- Styles Tambahan untuk Resep & Footer --- */
-
-/* Grid System yang bisa dipakai ulang */
-.grid-3 {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
-}
-
-/* Resep Section */
-.recipes {
-    padding: 60px 0;
-}
-
-.recipes h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-}
-
-/* Styling khusus kartu resep */
-.recipe-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
+.btn-wa:hover { background-color: #128C7E; }
 
 .recipe-link {
     font-weight: 700;
-    color: #0056b3; /* Warna biru link */
+    color: #007bff;
     text-decoration: none;
-    font-size: 1.1rem;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
     line-height: 1.4;
 }
+.recipe-link:hover { text-decoration: underline; color: #0056b3; }
+.date { font-size: 0.8rem; color: #999; }
 
-.recipe-link:hover {
-    text-decoration: underline;
-}
-
-.date {
-    font-size: 0.8rem;
-    color: #999;
-}
-
-/* Tombol Tampilkan Lainnya (Warna Abu) */
-.center-btn {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.btn-gray {
-    background-color: #e0e0e0;
-    color: #333;
-    padding: 12px 30px;
-    border-radius: 5px;
-    text-decoration: none;
+.center-btn { text-align: center; margin-top: 40px; }
+.btn-gray { 
+    background: #f4f4f4; 
+    color: #333; 
+    padding: 12px 30px; 
+    border-radius: 50px; 
+    text-decoration: none; 
     font-weight: 600;
-    transition: background 0.3s;
+    transition: 0.3s;
 }
+.btn-gray:hover { background: #ddd; }
 
-.btn-gray:hover {
-    background-color: #ccc;
-}
+/* --- BMI CALCULATOR --- */
+.bmi-section { background: #f0f9f0; text-align: center; }
+.bmi-wrapper { background: white; padding: 30px; max-width: 500px; margin: 20px auto; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+.bmi-form label { display: block; text-align: left; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem; }
+.bmi-form input { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; }
+.bmi-form button { width: 100%; padding: 12px; background: #27ae60; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: bold; }
+.bmi-form button:hover { background: #219150; }
+.bmi-result { margin-top: 20px; border-top: 1px dashed #ddd; padding-top: 15px; }
+.recommendation-box { background: #fff8e1; padding: 15px; border-radius: 8px; margin-top: 10px; text-align: left; border-left: 4px solid #f1c40f; }
 
-/* Footer Baru */
-footer {
-    background-color: #fff; /* Putih sesuai desain */
-    padding: 60px 0;
-    border-top: 1px solid #eee;
-}
+/* --- FAQ --- */
+.faq-section { background: #fafafa; }
+details { background: white; margin-bottom: 15px; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
+summary { font-weight: bold; cursor: pointer; list-style: none; position: relative; }
+summary::after { content: '+'; position: absolute; right: 0; font-weight: bold; color: #27ae60; }
+details[open] summary::after { content: '-'; }
+.faq-answer { margin-top: 10px; color: #555; line-height: 1.6; }
 
-.footer-title {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 1.8rem;
-}
+/* --- FOOTER --- */
+footer { background: #fff; padding: 50px 0; border-top: 1px solid #eee; }
+.footer-content { display: flex; justify-content: space-between; gap: 40px; }
+.footer-right ul { list-style: none; }
+.footer-right li { margin-bottom: 12px; display: flex; align-items: center; }
+.footer-right a { color: #555; text-decoration: none; }
+.icon { margin-right: 15px; width: 20px; display: inline-block; text-align: center; }
+.fa-instagram { color: #E1306C; }
+.fa-whatsapp { color: #25D366; }
+.fa-envelope { color: #555; }
 
-.footer-content {
-    display: flex;
-    justify-content: space-between; /* Agar kiri dan kanan terpisah */
-    flex-wrap: wrap; /* Agar responsif di HP */
-    gap: 40px;
-}
-
-.footer-left {
-    flex: 1; /* Mengambil ruang sisa */
-    min-width: 300px;
-}
-
-.footer-left h3 {
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-}
-
-.footer-right {
-    flex: 1;
-    min-width: 300px;
-}
-
-.footer-right ul {
-    list-style: none;
-}
-
-.footer-right li {
+/* Tombol Kembali (Pojok Kiri Atas) */
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 9999; /* Paling atas */
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
-    font-size: 1rem;
+    gap: 10px;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
 }
 
-.footer-right .icon {
-    margin-right: 15px;
-    font-size: 1.2rem;
-    width: 25px; /* Lebar tetap agar teks rata */
-    text-align: center;
+.back-btn:hover {
+    background: #fff;
+    color: #27ae60;
+    transform: translateX(-5px); /* Efek geser dikit */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
 }
 
-/* Responsif untuk Mobile (Layar kecil) */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column; /* Jadi atas bawah di HP */
-    }
+/* Container Baca (Mode Fokus) */
+.read-container {
+    max-width: 700px; /* Lebar ideal buat baca artikel */
+    margin: 0 auto;
+    padding: 80px 20px 60px; /* Padding atas besar biar gak ketabrak tombol back */
+    background: #fff;
+    min-height: 100vh;
 }
 
-/* Tambahan untuk Mobile */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2rem; /* Kecilkan font judul di HP */
-    }
-
-    .nav-links {
-        display: none; /* Idealnya diganti hamburger menu, tapi untuk simpel kita sembunyikan dulu atau buat stack */
-        /* Opsi cepat: Tampilkan menurun */
-        /* display: flex; 
-           flex-direction: column; 
-           gap: 10px; */
-    }
-    
-    /* Agar menu tetap terlihat tapi rapi (opsional simpel) */
-    .nav-container {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .nav-links {
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-/* --- BMI Calculator Styles --- */
-.bmi-section {
-    background-color: #f0f8ff; /* Warna biru muda lembut */
-    padding: 60px 0;
-    text-align: center;
-}
-
-.bmi-wrapper {
-    background: white;
-    max-width: 500px;
-    margin: 30px auto 0;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.bmi-form label {
-    display: block;
-    text-align: left;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.bmi-form input {
+/* Gambar Header Resep */
+.recipe-header img {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    object-fit: cover;
 }
 
-.bmi-form button {
-    width: 100%;
-    padding: 12px;
-    background-color: #27ae60;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.bmi-form button:hover {
-    background-color: #219150;
-}
-
-.bmi-result {
-    margin-top: 30px;
-    padding-top: 20px;
-    border-top: 2px dashed #eee;
-    animation: fadeIn 0.5s;
-}
-
-.bmi-result h3 {
-    font-size: 2rem;
-    margin-bottom: 5px;
-}
-
-.recommendation-box {
-    background-color: #fff3cd;
-    border: 1px solid #ffeeba;
-    color: #856404;
-    padding: 15px;
-    border-radius: 5px;
-    margin-top: 15px;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Tombol WhatsApp */
-.btn-wa {
-    display: inline-block; /* Agar bisa dikasih margin */
-    background-color: #25D366; /* Warna Hijau WA */
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-top: 10px;
-    font-size: 0.9rem;
-    transition: 0.3s;
-    width: 100%; /* Tombol lebar penuh */
-    text-align: center;
-}
-
-.btn-wa:hover {
-    background-color: #128C7E; /* Hijau lebih gelap pas disentuh */
-}
-
-/* --- FAQ Section Styles --- */
-.faq-section {
-    padding: 60px 0;
-    background-color: white;
-}
-
-.faq-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
-}
-
-.faq-grid {
-    max-width: 800px;
-    margin: 0 auto; /* Tengah */
-}
-
-details {
+/* Typography Khusus Halaman Resep */
+.recipe-header h1 {
+    font-size: 2.5rem;
+    color: #222;
     margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: 0.3s;
+    line-height: 1.2;
+    font-weight: 800;
 }
 
-details[open] {
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Bayangan saat dibuka */
-    border-color: #27ae60; /* Jadi hijau saat dibuka */
-}
-
-summary {
-    padding: 15px 20px;
-    cursor: pointer;
-    font-weight: 600;
-    background-color: #f9f9f9;
-    list-style: none; /* Hilangkan panah default browser lama */
-    position: relative;
-}
-
-/* Tanda Panah Custom (+) */
-summary::after {
-    content: '+'; 
-    position: absolute;
-    right: 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #666;
-}
-
-details[open] summary::after {
-    content: '-'; /* Berubah jadi minus saat dibuka */
-}
-
-.faq-answer {
-    padding: 20px;
-    background-color: white;
+.recipe-header .intro {
     color: #555;
-    border-top: 1px solid #eee;
+    font-size: 1.15rem;
+    margin-bottom: 40px;
+    font-style: italic;
     line-height: 1.6;
+    border-left: 4px solid #27ae60;
+    padding-left: 20px;
 }
 
-/* --- Styling Khusus Icon Footer --- */
-
-/* Agar ukuran icon pas */
-.footer-right i {
-    font-size: 1.3rem; /* Ukuran icon */
-    vertical-align: middle;
+.read-container h3 {
+    color: #27ae60;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
-/* Warna Instagram */
-.fa-instagram {
-    color: #E1306C; /* Pink kemerahan khas Instagram */
+.read-container ul, 
+.read-container ol {
+    margin-left: 20px;
+    color: #333;
+    font-size: 1.05rem;
+    line-height: 1.8;
 }
 
-/* Warna WhatsApp */
-.fa-whatsapp {
-    color: #25D366; /* Hijau WA */
+.read-container li {
+    margin-bottom: 12px;
+    padding-left: 5px;
 }
 
-/* Warna Email */
-.fa-envelope {
-    color: #007bff; /* Biru */
-}
+/* --- MEDIA QUERY (MOBILE) --- */
+@media (max-width: 768px) {
+    /* Munculkan Hamburger */
+    .nav-toggle-label { display: block; }
 
-/* Efek Hover (Goyang dikit pas disentuh) */
-.footer-right li:hover i {
-    transform: scale(1.2); /* Membesar sedikit */
-    transition: transform 0.2s;
+    /* SIDEBAR MOBILE */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background: white;
+        width: 75%;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        transition: right 0.4s ease;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        z-index: 1000; /* Di atas logo (z-index 10) */
+    }
+
+    .nav-links li { width: 100%; text-align: center; }
+    .nav-links a { font-size: 1.2rem; display: block; padding: 10px; }
+
+    /* Animasi Slide Masuk */
+    .nav-toggle:checked ~ .nav-links { right: 0; }
+
+    /* Animasi Ikon Hamburger jadi X */
+    .nav-toggle:checked ~ .nav-toggle-label span { background: transparent; }
+    .nav-toggle:checked ~ .nav-toggle-label span::before { transform: rotate(45deg); top: 0; }
+    .nav-toggle:checked ~ .nav-toggle-label span::after { transform: rotate(-45deg); top: 0; }
+
+    /* Penyesuaian Mobile */
+    .footer-content { flex-direction: column; text-align: center; }
+    .footer-right li { justify-content: center; }
+    .hero h1 { font-size: 2rem; }
+    
+    /* Kembalikan layout navbar ke baris normal */
+    .nav-container {
+        flex-direction: row; 
+        justify-content: space-between;
+    }
+
+    .recipe-header h1 {
+        font-size: 1.8rem;
+    }
+    .back-btn {
+        padding: 10px 15px; /* Tombol lebih kecil di HP */
+    }
+    .back-btn span {
+        display: none; /* Sembunyikan tulisan "Kembali" di HP biar hemat tempat, sisa panah aja */
+    }
 }

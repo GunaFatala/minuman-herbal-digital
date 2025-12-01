@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Minuman Herbal Digital - Pusat informasi, resep, dan produk UMKM pangan lokal yang sehat dan alami.">
+    <meta name="description" content="Minuman Herbal Digital - Inisiatif Digitalisasi UMKM Pangan Lokal oleh Mahasiswa UNTIRTA.">
     <title>Minuman Herbal Digital</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -14,11 +14,18 @@
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">Minuman Herbal Digital</a>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+
             <ul class="nav-links">
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#about">Tentang Kami</a></li>
                 <li><a href="#product">Produk</a></li>
-                <li><a href="#kalkulator">Cek BMI</a></li> <li><a href="#contact" class="btn-contact">Kontak</a></li>
+                <li><a href="#kalkulator">Cek BMI</a></li> 
+                <li><a href="#contact">Kontak</a></li>
             </ul>
         </div>
     </nav>
@@ -37,9 +44,7 @@
         <div class="container">
             <span class="tag">Tentang Kami</span>
             <h2>Siapa kami?</h2>
-            <p>Kami adalah tim mahasiswa Universitas Sultan Ageng Tirtayasa (UNTIRTA) yang berdedikasi mengembangkan potensi pangan lokal melalui digitalisasi UMKM. Website ini hadir sebagai pusat edukasi dan pemasaran produk minuman herbal fungsional yang kaya manfaat.</p>
-            <br>
-            <p>Kami percaya bahwa gaya hidup sehat bisa dimulai dari minuman tradisional yang dikemas secara modern.</p>
+            <p>Kami adalah tim mahasiswa Universitas Sultan Ageng Tirtayasa (UNTIRTA) yang berdedikasi mengembangkan potensi pangan lokal melalui digitalisasi UMKM. Website ini hadir sebagai pusat edukasi dan pemasaran produk minuman herbal fungsional.</p>
         </div>
     </section>
 
@@ -49,28 +54,38 @@
             <div class="product-grid">
                 <div class="card">
                     <img src="images/Teh telang.jpg" alt="Teh Telang">
-                    <h3>Teh Telang</h3>
-                    <p>Teh biru alami kaya antioksidan. Baik untuk mata dan otak.</p>
+                    <div class="card-content">
+                        <h3>Teh Telang</h3>
+                        <p>Teh biru alami kaya antioksidan. Baik untuk mata dan otak.</p>
+                    </div>
                     <a href="https://wa.me/6281316700238?text=Halo%20Admin,%20saya%20tertarik%20pesan%20Teh%20Telang." target="_blank" class="btn-wa">
                         💬 Pesan via WhatsApp
                     </a>
                 </div>
                 <div class="card">
                     <img src="images/Teh jahe.jpg" alt="Jahe Madu">
-                    <h3>Jahe Madu</h3>
-                    <p>Minuman hangat peningkat imun tubuh dan pereda masuk angin.</p>
+                    <div class="card-content">
+                        <h3>Jahe Madu</h3>
+                        <p>Minuman hangat peningkat imun tubuh dan pereda masuk angin. Cocok diminum saat hujan.</p>
+                    </div>
                     <a href="https://wa.me/6281316700238?text=Halo%20Admin,%20saya%20tertarik%20pesan%20Jahe%20Madu." target="_blank" class="btn-wa">
                         💬 Pesan via WhatsApp
                     </a>
                 </div>
                 <div class="card">
                     <img src="images/Teh rosella.jpeg" alt="Teh Rosella">
-                    <h3>Teh Rosella</h3>
-                    <p>Kaya Vitamin C, segar, dan membantu menurunkan darah tinggi.</p>
+                    <div class="card-content">
+                        <h3>Teh Rosella</h3>
+                        <p>Kaya Vitamin C, segar, dan membantu menurunkan darah tinggi.</p>
+                    </div>
                     <a href="https://wa.me/6281316700238?text=Halo%20Admin,%20saya%20tertarik%20pesan%20Teh%20Rosella." target="_blank" class="btn-wa">
                         💬 Pesan via WhatsApp
                     </a>
                 </div>
+            </div>
+            
+            <div class="center-btn">
+                <a href="#" class="btn-gray">Tampilkan Lainnya</a>
             </div>
         </div>
     </section>
@@ -81,22 +96,29 @@
             <div class="grid-3">
                 <div class="card recipe-card">
                     <img src="images/resep bunga telang.jpg" alt="Resep Teh Telang">
-                    <a href="#" class="recipe-link">Resep teh telang lemon agar segar dan berkhasiat</a>
-                    <p class="date">25 November 2025</p>
+                    <div class="card-content">
+                        <a href="resep-telang.html" class="recipe-link">Resep teh telang lemon agar segar dan berkhasiat</a>
+                        <p class="date">25 November 2025</p>
+                    </div>
                 </div>
                 <div class="card recipe-card">
                     <img src="images/Resep teh jahe.jpg" alt="Resep Teh Jahe">
-                    <a href="#" class="recipe-link">Cara membuat wedang jahe susu ala angkringan</a>
-                    <p class="date">20 November 2025</p>
+                    <div class="card-content">
+                        <a href="resep-jahe.html" class="recipe-link">Cara membuat wedang jahe susu ala angkringan</a>
+                        <p class="date">20 November 2025</p>
+                    </div>
                 </div>
                 <div class="card recipe-card">
                     <img src="images/Resep teh rosella.jpeg" alt="Resep Teh Rosella">
-                    <a href="#" class="recipe-link">Kreasi es teh rosella selasih yang menyegarkan</a>
-                    <p class="date">15 November 2025</p>
+                    <div class="card-content">
+                        <a href="resep-rosella.html" class="recipe-link">Kreasi es teh rosella selasih yang menyegarkan</a>
+                        <p class="date">15 November 2025</p>
+                    </div>
                 </div>
             </div>
+            
             <div class="center-btn">
-                <a href="#" class="btn-gray">Lihat Resep Lainnya</a>
+                <a href="#" class="btn-gray">Tampilkan Lainnya</a>
             </div>
         </div>
     </section>
@@ -109,17 +131,17 @@
             <div class="bmi-wrapper">
                 <div class="bmi-form">
                     <label>Berat Badan (kg)</label>
-                    <input type="number" id="weight" placeholder="Contoh: 60">
+                    <input type="number" id="weight" placeholder="Masukkan berat anda...">
                     
                     <label>Tinggi Badan (cm)</label>
-                    <input type="number" id="height" placeholder="Contoh: 170">
+                    <input type="number" id="height" placeholder="Masukkan tinggi anda...">
                     
                     <button onclick="hitungBMI()">Hitung Sekarang</button>
                 </div>
 
                 <div id="result" class="bmi-result" style="display: none;">
                     <h3>Hasil BMI: <span id="bmi-value">0</span></h3>
-                    <p id="bmi-status">Normal</p>
+                    <p>Status: <strong id="bmi-status">Normal</strong></p>
                     <div class="recommendation-box">
                         <h4>Rekomendasi Kami:</h4>
                         <p id="herbal-recommendation">-</p>
@@ -157,24 +179,22 @@
                     <h3>PT. Minuman Herbal Digital</h3>
                     <p>Berlokasi di Rangkasbitung, Lebak. Mendukung digitalisasi pangan lokal.</p>
                 </div>
-               <div class="footer-right">
-    <ul>
-        <li>
-            <span class="icon"><i class="fab fa-instagram"></i></span> 
-            <a href="https://instagram.com/minumanherbaldigital" target="_blank">@minumanherbaldigital.official</a>
-        </li>
-        
-        <li>
-            <span class="icon"><i class="fab fa-whatsapp"></i></span> 
-            <a href="https://wa.me/6281316700238" target="_blank">+62 812 3456 789</a>
-        </li>
-        
-        <li>
-            <span class="icon"><i class="far fa-envelope"></i></span> 
-            <a href="mailto:info@minumanherbal.co.id">info@minumanherbal.co.id</a>
-        </li>
-    </ul>
-</div>
+                <div class="footer-right">
+                    <ul>
+                        <li>
+                            <span class="icon"><i class="fab fa-instagram"></i></span> 
+                            <a href="https://instagram.com/minumanherbaldigital" target="_blank">@minumanherbaldigital.official</a>
+                        </li>
+                        <li>
+                            <span class="icon"><i class="fab fa-whatsapp"></i></span> 
+                            <a href="https://wa.me/6281316700238" target="_blank">+62 812 3456 789</a>
+                        </li>
+                        <li>
+                            <span class="icon"><i class="far fa-envelope"></i></span> 
+                            <a href="mailto:info@minumanherbal.co.id">info@minumanherbal.co.id</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <br>
             <p style="text-align: center; margin-top: 20px; font-size: 0.8rem;">&copy; 2025 Minuman Herbal Digital. All rights reserved.</p>
@@ -183,40 +203,48 @@
 
     <script>
         function hitungBMI() {
-            let berat = document.getElementById('weight').value;
-            let tinggi = document.getElementById('height').value;
+            // Mengambil input dan mengubah ke angka (Float)
+            let berat = parseFloat(document.getElementById('weight').value);
+            let tinggi = parseFloat(document.getElementById('height').value);
 
-            if(berat == "" || tinggi == "") {
-                alert("Harap isi berat dan tinggi badan!");
+            // Validasi Input Kosong atau Nol
+            if (isNaN(berat) || isNaN(tinggi) || berat <= 0 || tinggi <= 0) {
+                alert("Harap isi berat dan tinggi badan dengan angka yang benar!");
                 return;
             }
 
+            // Rumus BMI
             let tinggiMeter = tinggi / 100;
             let bmi = berat / (tinggiMeter * tinggiMeter);
-            bmi = bmi.toFixed(1);
+            bmi = bmi.toFixed(1); // Ambil 1 angka belakang koma
 
             let status = "";
             let rekomendasi = "";
             let warna = "";
 
+            // LOGIKA IF-ELSE TANPA GAP (CELAH)
             if (bmi < 18.5) {
-                status = "Kekurangan Berat Badan";
+                status = "Kekurangan Berat Badan (Kurus)";
                 rekomendasi = "Coba <strong>Jahe Madu</strong> atau <strong>Temulawak</strong> untuk meningkatkan nafsu makan sehat.";
-                warna = "#e67e22";
-            } else if (bmi >= 18.5 && bmi <= 24.9) {
-                status = "Berat Badan Normal";
-                rekomendasi = "Pertahankan dengan <strong>Teh Telang</strong> yang kaya antioksidan.";
-                warna = "#27ae60";
-            } else if (bmi >= 25 && bmi <= 29.9) {
-                status = "Kelebihan Berat Badan";
-                rekomendasi = "Bantu metabolisme dengan <strong>Teh Rosella</strong> hangat tanpa gula.";
-                warna = "#d35400";
-            } else {
+                warna = "#e67e22"; // Oranye
+            } 
+            else if (bmi < 25.0) { // Mencakup 18.5 sampai 24.99
+                status = "Berat Badan Normal (Ideal)";
+                rekomendasi = "Pertahankan kesehatanmu dengan <strong>Teh Telang</strong> yang kaya antioksidan.";
+                warna = "#27ae60"; // Hijau
+            } 
+            else if (bmi < 30.0) { // Mencakup 25.0 sampai 29.99
+                status = "Kelebihan Berat Badan (Overweight)";
+                rekomendasi = "Bantu metabolisme tubuh dengan <strong>Teh Rosella</strong> hangat tanpa gula.";
+                warna = "#d35400"; // Merah Bata
+            } 
+            else { // Mencakup 30.0 ke atas
                 status = "Obesitas";
-                rekomendasi = "Disarankan konsultasi ahli gizi. Coba herbal ringan seperti <strong>Lemon Tea</strong>.";
-                warna = "#c0392b";
+                rekomendasi = "Disarankan konsultasi ahli gizi. Coba herbal ringan seperti <strong>Lemon Tea</strong> untuk detoks.";
+                warna = "#c0392b"; // Merah Tua
             }
 
+            // Tampilkan Hasil
             document.getElementById('bmi-value').innerText = bmi;
             document.getElementById('bmi-status').innerText = status;
             document.getElementById('bmi-status').style.color = warna;
